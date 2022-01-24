@@ -124,7 +124,6 @@ public class BlockManager : MonoBehaviour
 
         blockData.Enqueue(Random.Range(0, 2));
         SetBlock();
-        gameManager.UpScore();
         SoundManager.instance.blockPopSound.Play();
     }
 }
