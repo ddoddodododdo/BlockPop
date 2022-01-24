@@ -32,12 +32,17 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        Application.targetFrameRate = 60;
+        SetApplication();
         homeWindow.SetActive(true);
         gameWindow.SetActive(false);
         gameOverWindow.SetActive(false);
         blockManager.gameObject.SetActive(false);
         nowState = GameState.Ready;
+    }
+
+    private void SetApplication()
+    {
+        Application.targetFrameRate = 60;
     }
 
     private void Update()
