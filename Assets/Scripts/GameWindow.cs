@@ -29,23 +29,23 @@ public class GameWindow : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    pauseWindow.SetActive(true);
-
-        //}
         if (!isPlaying) return;
 
-        CheckTap();
         SetRemainTimeImage();
+        CheckPause();
     }
 
-    private void CheckTap()
+    private void CheckPause()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            TapBlockButton(0);
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            TapBlockButton(1);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
+    private void Pause()
+    {
+        pauseWindow.SetActive(true);
     }
 
     private void SetRemainTimeImage()
@@ -102,6 +102,11 @@ public class GameWindow : MonoBehaviour
     public void Button_RightTap()
     {
         TapBlockButton(1);
+    }
+
+    public void Button_Pause()
+    {
+        Pause();
     }
 
     private void TapBlockButton(int idx)
